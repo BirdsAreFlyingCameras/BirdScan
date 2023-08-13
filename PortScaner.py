@@ -206,4 +206,6 @@ def Scan():
 t1 = t.Thread(target=Scan)
 t1.start()
 
-#Python port scanner
+#A simple Python port scanner
+
+#Not A Bird
