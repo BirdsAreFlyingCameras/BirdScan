@@ -13,9 +13,9 @@ Scan ports and output info in a clear and concise manner.
 
 Libraries used:
 
-socket
-threading
-colorama
+socket,
+threading,
+colorama,
 time
 
 ***Not A Bird | CEO of Bird Inc.***
