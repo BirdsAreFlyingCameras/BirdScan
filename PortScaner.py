@@ -6,7 +6,7 @@ import time
 
 start_time = time.time()
 host = "google.com"
-
+# host= input("Enter Host To Scan: ")
 
 class colors:
     colorama.init()
