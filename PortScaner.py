@@ -208,4 +208,5 @@ t1.start()
 
 #A simple Python port scanner
 
-#Not A Bird
+#Not A Bird 
+#CEO of Brid Inc.
