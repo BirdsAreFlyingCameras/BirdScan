@@ -1,5 +1,5 @@
 # BirdScan
-Version Number: Beta 0.1
+Version Number: Beta 1.0.1
 
 About:
 
