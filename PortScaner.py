@@ -116,7 +116,7 @@ def main():
 
         HostToScan()
 
-        def Scan(port):
+        def ScanPorts(port):
             global OpenPortsList  # tell Python we're using the global list
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.settimeout(1)
@@ -130,17 +130,22 @@ def main():
             finally:
                 s.close()
 
+        threads = []
+
         if CommonRange is True:
             for port in CommonPortsDict.keys():
-                thread = t.Thread(target=Scan, args=(port,))
+                thread = t.Thread(target=ScanPorts, args=(port,))
                 thread.start()
-
+                threads.append(thread)
         else:
             for port in range(0, int(PortRangeInt)):
-                thread = t.Thread(target=Scan, args=(port,))
+                thread = t.Thread(target=ScanPorts, args=(port,))
                 thread.start()
+                threads.append(thread)
 
-        Scan(port)
+        for thread in threads:
+            thread.join()
+
 
         def Outputs():
 
@@ -176,7 +181,6 @@ def main():
 
             PortsCheck()
             ConsoleOutput()
-
             def TxtOutput():
                 if os.path.exists(f'{host}.txt'):
                     pass
@@ -201,16 +205,15 @@ def main():
                         file.write(f"{FilteredOutputU}\n")
 
             TxtOutput()
-
         Outputs()
+    Scan()
 
-    t1 = t.Thread(target=Scan)
-    t1.start()
+
 
 
 main()
 
-# BirdScan 1.0.3
+# BirdScan 1.0.4
 # A simple Python port scanner
 
 # Not A Bird
